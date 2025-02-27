@@ -1,7 +1,7 @@
-MOV AX 3d -> no comma (syntax error)
-MOV 23, AX -> asignment to immediate number (logical error)
-MOV CX, CH -> assignment of separate sized registers (logical error)
-MOVE AX, 1h -> MOVE is not a valid command (syntax error)
-ADD 2, CX -> assignment to immediate number (logical error)
-ADD 3, 6 -> assignment to immediate number (logical error)
-INC AX, 2 -> inc does not take any source operand (syntax error)
+MOV AX 3d -> no comma (syntax error) [br]
+MOV 23, AX -> asignment to immediate number (logical error) [br]
+MOV CX, CH -> assignment of separate sized registers (logical error) [br]
+MOVE AX, 1h -> MOVE is not a valid command (syntax error) [br]
+ADD 2, CX -> assignment to immediate number (logical error) [br]
+ADD 3, 6 -> assignment to immediate number (logical error) [br]
+INC AX, 2 -> inc does not take any source operand (syntax error) [br]
