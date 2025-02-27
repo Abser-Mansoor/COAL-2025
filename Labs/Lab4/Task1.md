@@ -1,4 +1,4 @@
-MOV AX 3d -> no comma (syntax error) <br \>
+MOV AX 3d -> no comma (syntax error)\
 MOV 23, AX -> asignment to immediate number (logical error) <br \>
 MOV CX, CH -> assignment of separate sized registers (logical error) <br \>
 MOVE AX, 1h -> MOVE is not a valid command (syntax error) <br \>
