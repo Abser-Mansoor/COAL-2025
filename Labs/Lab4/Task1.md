@@ -6,7 +6,6 @@ MOVE AX, 1h -> MOVE is not a valid command (syntax error)\
 ADD 2, CX -> assignment to immediate number (logical error)\
 ADD 3, 6 -> assignment to immediate number (logical error)\
 INC AX, 2 -> inc does not take any source operand (syntax error)\
- \
 ## Task 2
 ```asm
 TITLE task.asm
@@ -22,9 +21,7 @@ exit
 main endp
 end main
 ```
-![image](https://github.com/user-attachments/assets/bcad71b4-0f45-4efb-bc73-79263d05f2a2)
-\
-\
+![image](https://github.com/user-attachments/assets/bcad71b4-0f45-4efb-bc73-79263d05f2a2)\
 ## Task 3
 ```asm
 TITLE task.asm
@@ -45,9 +42,7 @@ exit
 main endp
 end main
 ```
-![image](https://github.com/user-attachments/assets/bb74e94a-ef4b-47ac-a0e0-796ad064cb94)
-\
-\
+![image](https://github.com/user-attachments/assets/bb74e94a-ef4b-47ac-a0e0-796ad064cb94)\
 ## Task 4
 ```asm
 
