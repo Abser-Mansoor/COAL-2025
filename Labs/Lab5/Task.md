@@ -11,21 +11,17 @@ include irvine32.inc
 main PROC
     mov esi, OFFSET arr
 
-    mov al, [esi] 
+    mov al, [esi+2] 
     mov newarr[0], al
-    inc esi
 
-    mov al, [esi] 
+    mov al, [esi+4] 
     mov newarr[1], al
-    inc esi
 
-    mov al, [esi]  
+    mov al, [esi+1]  
     mov newarr[2], al
-    inc esi
 
-    mov al, [esi]  
+    mov al, [esi+3]  
     mov newarr[3], al
-    inc esi
 
     mov al, [esi] 
     mov newarr[4], al
@@ -101,6 +97,53 @@ main endp
 end main
 ```
 ## Task 3
+```asm
+TITLE task
+include irvine32.inc
+
+.data
+	array1 BYTE 10, 20, 30, 40
+    array2 BYTE 4 DUP (?)
+
+.code
+main PROC
+    mov esi, OFFSET array1
+    add esi, LENGTHOF array1-1
+    mov edi, OFFSET array2
+
+    mov al, [esi]
+    mov [edi], al
+    inc edi
+    dec esi
+
+    mov al, [esi]
+    mov [edi], al
+    inc edi
+    dec esi
+
+    mov al, [esi]
+    mov [edi], al
+    inc edi
+    dec esi
+
+    mov al, [esi]
+    mov [edi], al
+    inc edi
+    dec esi
+
+    mov ecx, LENGTHOF array2
+    mov esi, 0
+    printarr:
+        movzx eax, array2[esi]
+        inc esi
+        call writeint
+        call crlf
+    loop printarr
+    exit
+main endp
+end main
+```
+## Task 4
 ```asm
 
 ```
