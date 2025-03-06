@@ -41,6 +41,8 @@ printarr:
 main endp
 end main
 ```
+![image](https://github.com/user-attachments/assets/6d13a632-5f9d-4641-9b3c-768c6949bb75)
+
 ## Task 2
 ```asm
 TITLE task
@@ -96,6 +98,8 @@ main PROC
 main endp
 end main
 ```
+![image](https://github.com/user-attachments/assets/8d8ddeee-0426-4183-9583-23c115eab68b)
+
 ## Task 3
 ```asm
 TITLE task
@@ -143,6 +147,8 @@ main PROC
 main endp
 end main
 ```
+![image](https://github.com/user-attachments/assets/a9f46e41-743d-4525-8b40-80d17765a17e)
+
 ## Task 4
 ```asm
 TITLE task
@@ -173,6 +179,8 @@ main PROC
 main endp
 end main
 ```
+![image](https://github.com/user-attachments/assets/ead84162-3707-4c9c-ac77-695f1ff0016b)
+
 ## Task 5
 ```asm
 TITLE task
@@ -213,3 +221,4 @@ main PROC
 main endp
 end main
 ```
+![image](https://github.com/user-attachments/assets/85627b0e-f30b-4aaa-976f-5fa0d46aa56b)
