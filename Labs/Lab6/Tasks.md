@@ -132,7 +132,33 @@ end main
 ```
 ![image](https://github.com/user-attachments/assets/bf80ff16-e45b-4327-8044-ce7636387178)
 
-## Task 3
+## Task 5
 ```asm
+TITLE Source
+include irvine32.inc
 
+.data
+	array DWORD 1,2,3,4,5,6,7,8,9
+.code
+main PROC
+	mov ecx, lengthof array/2
+	mov esi, 0
+	mov edi, lengthof array-1
+	outer:
+		mov eax, array[esi * type array]
+		xchg eax, array[edi * type array]
+		mov array[esi * type array], eax
+		inc esi
+		dec edi
+	loop outer
+	mov esi, 0
+	mov ecx, lengthof array
+	print:
+		mov eax, array[esi * type array]
+		call writeint
+		inc esi
+	loop print
+main endp
+end main
 ```
+![image](https://github.com/user-attachments/assets/17936019-0da8-46ad-be39-19255da881a4)
