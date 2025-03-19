@@ -132,6 +132,91 @@ end main
 ```
 ![image](https://github.com/user-attachments/assets/bf80ff16-e45b-4327-8044-ce7636387178)
 
+## Task 3
+```asm
+TITLE Equation 1 (Test.asm)
+INCLUDE Irvine32.inc
+
+.Data
+    id_prompt BYTE "Please Enter Your Employee ID", 0
+    name_prompt BYTE  "Please Enter Your Name", 0
+    dob_prompt BYTE  "Please Enter Your Date Of Birth", 0
+    salary_prompt BYTE  "Please Enter Your Annual Salary", 0
+    total_salary_message BYTE "The Total Salary Is: ", 0
+    ids DWORD 5 DUP(20 DUP(?))
+    names DWORD 5 DUP(?)
+    dobs DWORD 5 DUP(?)
+    salaries DWORD 5 DUP(?)
+    total_salary DWORD ?
+
+.code
+main PROC
+    mov esi, 0
+    input_loop:
+        
+        ; Reading id
+        mov edx, offset id_prompt
+        mov eax, [edx]
+        call writestring
+        call crlf
+        call readint
+        mov ids[esi*4], eax
+
+        ; Reading name
+        mov edx, offset name_prompt
+        mov eax, [edx]
+        call writestring
+        call crlf
+        mov edx, offset names
+        mov edi, esi
+        imul edi, 20
+        add edx, edi
+        call readstring
+
+        ; Reading dob
+        mov edx, offset dob_prompt
+        mov eax, [edx]
+        call writestring
+        call crlf
+        call readint
+        mov dobs[esi*4], eax
+
+        ; Reading salary
+        mov edx, offset salary_prompt
+        mov eax, [edx]
+        call writestring
+        call crlf
+        call readint
+        mov salaries[esi*4], eax
+
+        inc esi
+        cmp esi, 5
+        jl input_loop
+
+    mov esi, 1
+    mov eax, 0
+    mov eax, salaries[0]
+
+    cumulative_salary:
+        add eax, salaries[esi*4]
+        inc esi
+        cmp esi, 5
+        jl cumulative_salary
+    
+    mov total_salary, eax
+    mov edx, offset total_salary_message
+    mov eax, [edx]
+    call writestring
+    mov eax, total_salary
+    call writeint
+
+    exit
+main ENDP
+
+END main
+```
+![image](https://github.com/user-attachments/assets/e992146a-9acd-4008-a2e4-16a56f6932b4)
+
 ## Task 5
 ```asm
 TITLE Source
