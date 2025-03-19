@@ -217,6 +217,38 @@ END main
 ```
 ![image](https://github.com/user-attachments/assets/e992146a-9acd-4008-a2e4-16a56f6932b4)
 
+## Task 4
+```asm
+TITLE Equation 1 (Test.asm)
+INCLUDE Irvine32.inc
+
+.Data
+    source BYTE "Hello World!", 0
+    target BYTE lengthof source DUP(?)
+
+.code
+main PROC
+    
+    mov esi, offset source
+    mov edi, offset target
+    copy_string:
+        mov al, [esi]
+        mov [edi], al
+        inc esi
+        inc edi
+        cmp al, 0
+        je done
+        jmp copy_string
+    done:
+    mov edx, offset target
+    call writestring
+    exit
+main ENDP
+
+END main
+```
+![image](https://github.com/user-attachments/assets/5598bfc9-4170-4f11-9fbf-b02694d90e10)
+
 ## Task 5
 ```asm
 TITLE Source
