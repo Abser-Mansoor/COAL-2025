@@ -279,3 +279,58 @@ main endp
 end main
 ```
 ![image](https://github.com/user-attachments/assets/17936019-0da8-46ad-be39-19255da881a4)
+
+## Task 6
+```asm
+TITLE Test.asm
+INCLUDE Irvine32.inc
+
+.DATA
+    source DWORD 8, 5, 1, 2, 6
+
+.CODE
+main PROC
+    mov edi, lengthof source
+    dec edi   ; Outer loop runs size-1 times
+
+outer_loop:
+    mov esi, 0 ; Start comparing from index 0
+    mov ecx, edi 
+
+inner_loop:
+    mov eax, source[esi * 4]
+    mov edx, source[esi * 4 + 4] ; Next element
+
+    cmp eax, edx
+    jle no_swap
+
+    ; Swap elements
+    mov source[esi * 4], edx
+    mov source[esi * 4 + 4], eax
+
+no_swap:
+    inc esi
+    loop inner_loop  ; Decrement ECX and loop again if not zero
+
+    dec edi
+    cmp edi, 0
+    jg outer_loop 
+
+; Print sorted array
+mov esi, 0
+print_array:
+    cmp esi, lengthof source
+    jge done
+
+    mov eax, source[esi * 4]
+    call writeint
+    call crlf
+    inc esi
+    jmp print_array
+
+done:
+    exit
+main ENDP
+END main
+```
+![image](https://github.com/user-attachments/assets/18e2bc36-4f19-4409-9123-3ec471ba2fb6)
