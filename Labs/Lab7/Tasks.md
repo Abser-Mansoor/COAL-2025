@@ -79,7 +79,7 @@ INCLUDE irvine32.inc
     arr2 DWORD 6,7,8,9,10
     sum1 DWORD ?
     sum2 DWORD ?
-    final_sum DWORD ?  ; Added to store the final result
+    final_sum DWORD ?
 
 .code
 
@@ -94,7 +94,7 @@ sum_array1:
     inc esi                     
     loop sum_array1            
 
-    mov sum1, ebx   ; Store sum1
+    mov sum1, ebx
     ret
 sum_arr1 ENDP
 
@@ -170,3 +170,48 @@ main endp
 end main
 ```
 ![image](https://github.com/user-attachments/assets/8e00f8dd-d321-4fbc-b611-31f0e61a78db)
+
+## Task 5
+```asm
+TITLE Task5
+INCLUDE irvine32.inc
+
+.data
+    prompt BYTE "Enter a number n: ", 0
+    input DWORD ?
+    final_sum DWORD ?
+
+.code
+
+sum_n_numbers PROC
+    mov eax, input   
+    mov ebx, eax     
+    inc ebx          
+    mul ebx         
+    
+    mov edx, 0       
+    mov ecx, 2        
+    div ecx          
+    
+    mov final_sum, eax ; Store final sum
+    ret
+sum_n_numbers ENDP
+
+main PROC
+    mov edx, offset prompt
+    call writestring  
+    call readint     
+    mov input, eax    
+
+    call sum_n_numbers 
+
+    mov eax, final_sum 
+    call writeint      
+    call Crlf          
+
+    exit
+main ENDP
+
+END main
+```
+![image](https://github.com/user-attachments/assets/fd5bfe73-65c4-479b-9c3c-535b86286e58)
